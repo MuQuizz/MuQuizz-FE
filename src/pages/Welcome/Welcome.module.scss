@@ -1,0 +1,36 @@
+@import "../../variables";
+.welcome {
+  display: flex;
+  color: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .phrase {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 50px;
+      color: $color-3;
+      margin-right: 20px;
+    }
+    span {
+      font-size: 30px;
+    }
+  }
+  p {
+    margin-bottom: 15px;
+    font-size: 20px;
+    &:nth-child(3) {
+      font-size: 12px;
+      // color: ;
+    }
+  }
+
+  button {
+    transition: all 0.3s ease 0s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
