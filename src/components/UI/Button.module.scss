@@ -1,0 +1,10 @@
+@import "../../variables";
+.btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 13px;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: $color-2;
+  font-weight: 600;
+}
