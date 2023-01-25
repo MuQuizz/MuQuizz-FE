@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Welcome from "./pages/Welcome";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Welcome />,
       },
+      { path: "/signup", element: <Signup /> },
     ],
   },
 ]);
