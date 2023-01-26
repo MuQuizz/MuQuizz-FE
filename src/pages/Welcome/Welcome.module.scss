@@ -10,8 +10,8 @@
     display: flex;
     align-items: center;
     i {
-      font-size: 50px;
       color: $color-3;
+      font-size: 50px;
       margin-right: 20px;
     }
     span {
@@ -26,11 +26,14 @@
       // color: ;
     }
   }
-
-  button {
-    transition: all 0.3s ease 0s;
-    &:hover {
-      transform: scale(1.2);
+  .user {
+    display: flex;
+    gap: 15px;
+    button {
+      transition: all 0.3s ease 0s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 }

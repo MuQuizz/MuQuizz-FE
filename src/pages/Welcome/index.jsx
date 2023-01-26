@@ -12,9 +12,14 @@ const Welcome = () => {
       </p>
       <p>음악의 신은 누구?</p>
       <p>여러 플레이어들과 당신의 음악 실력을 겨뤄보세요!</p>
-      <Link to="/signup">
-        <Button>회원가입</Button>
-      </Link>
+      <div className={styles.user}>
+        <Link to="/login">
+          <Button>로그인</Button>
+        </Link>
+        <Link to="/signup">
+          <Button>회원가입</Button>
+        </Link>
+      </div>
     </div>
   );
 };
