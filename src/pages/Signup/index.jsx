@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Signup.module.scss";
 import Button from "../../components/UI/Button";
 import Container from "../../components/UI/Container";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -9,15 +10,19 @@ const Signup = () => {
   const [nickname, setNickname] = useState("");
   const [sex, setSex] = useState("");
 
+  const navigate = useNavigate();
+
   const submitHandler = (event) => {
     event.preventDefault();
+    // 회원가입이 끝나면 웰컴페이지로 보낸다. 거기서 로그인하도록.
+    navigate("/");
   };
 
   return (
     <div className={styles.signup}>
       <p>MUQUIZZ 회원가입</p>
       <Container>
-        <form>
+        <form onSubmit={submitHandler}>
           <label htmlFor="email">이메일</label>
           <input
             id="email"
@@ -61,9 +66,7 @@ const Signup = () => {
               <option value="male">남자</option>
               <option value="female">여자</option>
             </select>
-            <Button type="submit" onClick={submitHandler}>
-              회원가입
-            </Button>
+            <Button type="submit">회원가입</Button>
           </div>
         </form>
       </Container>
