@@ -1,0 +1,39 @@
+@import "../../variables";
+.login {
+  display: flex;
+  color: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  p {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    margin: 25px 30px;
+    color: #000000;
+    flex-direction: column;
+    input {
+      height: 30px;
+      margin: 10px 0;
+      border: 1px solid #666666;
+      border-radius: 3px;
+      padding-left: 5px;
+      &::placeholder {
+        padding-left: 5px;
+      }
+      &:focus {
+        border-color: $color-4;
+        outline: 0;
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+    button {
+      width: auto;
+    }
+  }
+}
