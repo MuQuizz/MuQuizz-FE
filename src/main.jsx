@@ -8,6 +8,7 @@ import Welcome from "./pages/Welcome";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
+import User from "./pages/User";
 import Header from "./components/Layout/Header";
 import { Provider } from "react-redux";
 import store from "./store/store";
@@ -31,7 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/main",
         element: <Header />,
-        children: [{ path: "", element: <Main /> }],
+        children: [
+          { path: "", element: <Main /> },
+          { path: "user", element: <User /> },
+        ],
       },
     ],
   },
