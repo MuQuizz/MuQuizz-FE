@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./User.module.scss";
-import avatar from "../../assets/profile/man/profile_12.png";
+import avatar from "../../assets/profile/man/1.png";
 import Button from "../../components/UI/Button";
 import Avatar from "../../components/User/Avatar";
 import { useSelector } from "react-redux";

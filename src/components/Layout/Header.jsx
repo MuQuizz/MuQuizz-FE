@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { Outlet } from "react-router-dom";
 // 우선 임시로 아무 아바타 설정
-import avatar from "../../assets/profile/man/profile_12.png";
+import avatar from "../../assets/profile/man/1.png";
 import Dropdown from "../UI/Dropdown";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
