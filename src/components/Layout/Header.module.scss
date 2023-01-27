@@ -39,11 +39,11 @@ header {
       top: 60px;
       right: -25px;
       ul {
+        color: red;
         li {
-          color: #ffffff;
           margin: 15px 0;
-          &:last-child {
-            color: red;
+          &:first-child {
+            color: #ffffff;
           }
         }
       }
