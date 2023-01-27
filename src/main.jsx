@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 import Welcome from "./pages/Welcome";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Main from "./pages/Main";
+import Header from "./components/Layout/Header";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { persistStore } from "redux-persist";
@@ -26,6 +28,11 @@ const router = createBrowserRouter([
       },
       { path: "/signup", element: <Signup /> },
       { path: "/login", element: <Login /> },
+      {
+        path: "/main",
+        element: <Header />,
+        children: [{ path: "", element: <Main /> }],
+      },
     ],
   },
 ]);
