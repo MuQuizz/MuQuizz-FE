@@ -4,18 +4,21 @@ import styles from "./Login.module.scss";
 import Button from "../../components/UI/Button";
 import { useDispatch } from "react-redux";
 import { changeLoginStatus } from "../../store/loginSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitHandler = (event) => {
     event.preventDefault();
     // 만약 validate 회원정보면
     dispatch(changeLoginStatus(true));
     console.log(email, password);
+    navigate("/main");
   };
 
   return (
