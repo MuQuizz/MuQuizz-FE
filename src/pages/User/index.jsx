@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styles from "./User.module.scss";
-import avatar from "../../assets/profile/man/1.png";
 import Button from "../../components/UI/Button";
 import Avatar from "../../components/User/Avatar";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeModalStatus } from "../../store/modalSlice";
 
 const User = () => {
@@ -17,10 +15,20 @@ const User = () => {
 
   const [nameInput, setNameInput] = useState("");
 
+  // 유저 아바타 사진
+  const avatar = useSelector((state) => {
+    return state.avatar.avatar;
+  });
+
   // modal을 redux state로 관리 props드릴링이 두번해야해서...
   const modal = useSelector((state) => {
     return state.modal.modal;
   });
+
+  // 아바타 변경
+  const avatarHandler = (num) => {
+    setUserAvatar(num);
+  };
 
   // 수정버튼이 트리거되면 api put요청 ... 그러면 state는?
   const editHandler = () => {
@@ -54,7 +62,10 @@ const User = () => {
     <section className={styles.container}>
       {modal && <Avatar />}
       <div className={styles.avatar}>
-        <img src={avatar} alt="유저아바타" />
+        <img
+          src={`../../../public/assets/profile/man/${avatar}.png`}
+          alt="유저아바타"
+        />
         <Button onClick={modalHandler}>아바타 변경</Button>
       </div>
       <div className={styles.userInfo}>

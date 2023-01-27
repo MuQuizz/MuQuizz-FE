@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { Outlet } from "react-router-dom";
-// 우선 임시로 아무 아바타 설정
-import avatar from "../../assets/profile/man/1.png";
 import Dropdown from "../UI/Dropdown";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeLoginStatus } from "../../store/loginSlice";
 
 const Header = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const dispatch = useDispatch();
+
+  const avatar = useSelector((state) => {
+    return state.avatar.avatar;
+  });
 
   const renderArrow = dropdown ? (
     <i className="fa-solid fa-caret-up"></i>
@@ -38,7 +40,10 @@ const Header = () => {
         </Link>
 
         <div className={styles.user} onClick={handleArrow}>
-          <img src={avatar} alt="유저 아바타" />
+          <img
+            src={`../../../public/assets/profile/man/${avatar}.png`}
+            alt="유저 아바타"
+          />
           {renderArrow}
           {dropdown && (
             <Dropdown>
