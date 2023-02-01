@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "../../components/UI/Container";
+import Container from "../../components/UI/LoginContainer";
 import styles from "./Login.module.scss";
 import Button from "../../components/UI/Button";
 import { useDispatch } from "react-redux";

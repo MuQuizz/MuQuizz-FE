@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Signup.module.scss";
 import Button from "../../components/UI/Button";
-import Container from "../../components/UI/Container";
+import Container from "../../components/UI/LoginContainer";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
