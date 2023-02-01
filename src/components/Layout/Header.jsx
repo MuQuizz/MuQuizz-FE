@@ -41,7 +41,7 @@ const Header = () => {
 
         <div className={styles.user} onClick={handleArrow}>
           <img
-            src={`../../../public/assets/profile/man/${avatar}.png`}
+            src={`../../../assets/profile/man/${avatar}.png`}
             alt="유저 아바타"
           />
           {renderArrow}

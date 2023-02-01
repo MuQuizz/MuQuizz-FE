@@ -28,7 +28,7 @@ const Avatar = () => {
         {manAvatars.map((avatar, i) => {
           return (
             <img
-              src={`../../../public/assets/profile/man/${avatar}.png`}
+              src={`../../../assets/profile/man/${avatar}.png`}
               alt="avatar"
               key={i}
               onClick={() => avatarHandler(i + 1)}

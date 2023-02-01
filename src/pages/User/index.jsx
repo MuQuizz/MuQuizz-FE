@@ -63,7 +63,7 @@ const User = () => {
       {modal && <Avatar />}
       <div className={styles.avatar}>
         <img
-          src={`../../../public/assets/profile/man/${avatar}.png`}
+          src={`../../../assets/profile/man/${avatar}.png`}
           alt="유저아바타"
         />
         <Button onClick={modalHandler}>아바타 변경</Button>
