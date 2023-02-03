@@ -1,0 +1,23 @@
+@import "../../variables";
+.mainPage {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .rightContainer {
+    margin-right: 24px;
+    width: 30%;
+    button {
+      width: 100%;
+      height: 18vh;
+      border: none;
+      font-size: 40px;
+      margin-left: 12px;
+      border-radius: 5px;
+      background-color: $color-3;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-4;
+      }
+    }
+  }
+}
