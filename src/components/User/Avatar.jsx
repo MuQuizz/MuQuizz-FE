@@ -23,7 +23,7 @@ const Avatar = () => {
 
   return (
     <Modal>
-      <p>변경할 아바타를 선택해주세요!</p>
+      <p className={styles.avatar}>변경할 아바타를 선택해주세요!</p>
       <div className={styles.container}>
         {manAvatars.map((avatar, i) => {
           return (
