@@ -18,7 +18,6 @@ const Main = () => {
     ["rooms"],
     () =>
       axios.get("http://52.79.68.113:8080/room/list").then((a) => {
-        console.log(a);
         return a.data;
       }),
     { refetchInterval: 1000 }
