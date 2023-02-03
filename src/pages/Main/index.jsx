@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Main.module.scss";
 import MainContainer from "../../components/UI/MainContainer";
 import Description from "../../components/Main/Description";
@@ -37,18 +37,27 @@ const Main = () => {
     },
   ];
 
-  const descriptionData = {
-    roomId: 1,
-    status: "ready",
-    roomName: "노쳐맞 할사람 모두 모여라~",
-    maxNumOfPeople: 8,
-    currNumOfPeople: 1,
+  // 현재 클릭한 방에 따라서 descriptionData가 바뀌어야함. 이건 state로 하자.
+
+  const [descriptionData, setDescriptionData] = useState({
+    roomId: "",
+    status: "",
+    roomName: "",
+    maxNumOfPeople: "",
+    currNumOfPeople: "",
+  });
+
+  const handleDescriptionData = (data) => {
+    setDescriptionData(data);
   };
 
   return (
     <section className={styles.mainPage}>
       <MainContainer width="50" height="70">
-        <RoomList data={resultData} />
+        <RoomList
+          data={resultData}
+          handleDescriptionData={handleDescriptionData}
+        />
       </MainContainer>
       <div className={styles.rightContainer}>
         <MainContainer width="100" height="50">
