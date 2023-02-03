@@ -1,0 +1,52 @@
+.bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 40px;
+  span {
+    width: 13px;
+    height: 100%;
+    background-color: orange;
+    border-radius: 3px;
+    transform-origin: bottom;
+    animation: bounce 2.2s ease infinite alternate;
+    content: "";
+    &:nth-of-type(2) {
+      animation-delay: -2.2s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: -3.7s;
+    }
+    &:nth-of-type(4) {
+      animation-delay: -2.8s;
+    }
+    &:nth-of-type(5) {
+      animation-delay: -1.5s;
+    }
+  }
+}
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3);
+  }
+
+  30% {
+    transform: scaleY(1);
+  }
+
+  60% {
+    transform: scaleY(0.5);
+  }
+
+  80% {
+    transform: scaleY(0.75);
+  }
+
+  100% {
+    transform: scaleY(0.6);
+  }
+}
