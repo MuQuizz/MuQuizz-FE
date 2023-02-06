@@ -28,13 +28,16 @@ const CreateRoom = () => {
     name: title,
   };
 
-  const postData = () => {
-    axios.post("http://127.0.0.1:8080/room", params);
+  const postData = async () => {
+    await axios.post("http://127.0.0.1:8080/room", params);
   };
 
   const { mutate } = useMutation(postData, {
     onSuccess: () => {
       queryClient.invalidateQueries(["rooms"]);
+    },
+    onError: (error) => {
+      console.log(error);
     },
   });
 

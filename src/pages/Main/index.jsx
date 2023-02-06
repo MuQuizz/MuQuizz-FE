@@ -25,15 +25,15 @@ const Main = () => {
   // 따라서 react query를 사용해보자
 
   // usemutation과 연계하여 알아서 잘 fetch함.
-  const fetchResultData = useQuery(["rooms"], () =>
-    axios.get("http://127.0.0.1:8080/room/list").then((data) => {
-      return data.data;
-    })
+  const fetchResultData = useQuery(
+    ["rooms"],
+    async () =>
+      await axios.get("http://127.0.0.1:8080/room/list").then((data) => {
+        return data.data;
+      })
   );
 
   const resultData = fetchResultData.data;
-
-  console.log(resultData);
 
   const modal = useSelector((state) => {
     return state.modal.modal;
