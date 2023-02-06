@@ -8,7 +8,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-  const [sex, setSex] = useState("");
+  const [sex, setSex] = useState("male");
 
   const navigate = useNavigate();
 
@@ -23,7 +23,13 @@ const Signup = () => {
       <p>MUQUIZZ 회원가입</p>
       <Container>
         <form onSubmit={submitHandler}>
-          <label htmlFor="email">이메일</label>
+          <div className={styles.inputHeader}>
+            <label htmlFor="email">이메일</label>
+            {!email.includes("@") && email.length > 0 && (
+              <span>이메일을 올바르게 입력해주세요.</span>
+            )}
+          </div>
+
           <input
             id="email"
             type="email"
@@ -33,7 +39,12 @@ const Signup = () => {
               setEmail(event.target.value);
             }}
           />
-          <label htmlFor="password">비밀번호</label>
+          <div className={styles.inputHeader}>
+            <label htmlFor="password">비밀번호</label>
+            {password.length < 8 && password.length > 0 && (
+              <span>비밀번호를 8자리 이상 입력해주세요.</span>
+            )}
+          </div>
           <input
             id="password"
             type="password"
@@ -43,7 +54,12 @@ const Signup = () => {
               setPassword(event.target.value);
             }}
           />
-          <label htmlFor="nickname">닉네임</label>
+          <div className={styles.inputHeader}>
+            <label htmlFor="nickname">닉네임</label>
+            {nickname.length < 2 && nickname.length > 0 && (
+              <span>닉네임을 두 글자 이상 입력해주세요.</span>
+            )}
+          </div>
           <input
             id="nickname"
             type="text"
