@@ -2,6 +2,8 @@ import "./App.scss";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
   const login = useSelector((state) => {
@@ -19,13 +21,17 @@ function App() {
   // 나중에 내용추가.
   // 로그인이 된 상태면 아바타 상태를 redux-persist에 미리 저장해놔야함
   // api로 아바타 정보받아온것을 넣어야한다 이말임.
-
+  const queryClient = new QueryClient();
+  // console.log(queryClient);
   return (
-    <div className="App">
-      <main>
-        <Outlet />
-      </main>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <main>
+          <Outlet />
+        </main>
+      </div>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+    </QueryClientProvider>
   );
 }
 
