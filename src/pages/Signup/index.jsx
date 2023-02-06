@@ -3,19 +3,45 @@ import styles from "./Signup.module.scss";
 import Button from "../../components/UI/Button";
 import Container from "../../components/UI/LoginContainer";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-  const [sex, setSex] = useState("male");
+  const [sex, setSex] = useState("MAN");
 
   const navigate = useNavigate();
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // 회원가입이 끝나면 웰컴페이지로 보낸다. 거기서 로그인하도록.
-    navigate("/");
+
+    const params = {
+      username: email,
+      name: nickname,
+      password: password,
+      oauth: "BASIC",
+      gender: sex,
+      role: "USER",
+    };
+
+    try {
+      async function signup() {
+        const data = await axios.post(
+          "http://127.0.0.1:8080/user/register/local",
+          params
+        );
+        console.log(data);
+        if (data.status !== 200) {
+          throw new Error();
+        }
+      }
+      signup();
+      // 회원가입이 끝나면 웰컴페이지로 보낸다. 거기서 로그인하도록.
+      navigate("/");
+    } catch (error) {
+      console.log(`통신 오류: ${error.response}`);
+    }
   };
 
   return (
@@ -29,7 +55,6 @@ const Signup = () => {
               <span>이메일을 올바르게 입력해주세요.</span>
             )}
           </div>
-
           <input
             id="email"
             type="email"
@@ -78,11 +103,22 @@ const Signup = () => {
                 setSex(event.target.value);
               }}
             >
-              <option value="">성별</option>
-              <option value="male">남자</option>
-              <option value="female">여자</option>
+              <option value="MAN">성별</option>
+              <option value="MAN">남자</option>
+              <option value="WOMEN">여자</option>
             </select>
-            <Button type="submit">회원가입</Button>
+            {!email.includes("@") ||
+            nickname.length < 2 ||
+            password.length < 8 ? (
+              <Button
+                type="submit"
+                style={{ filter: "grayscale(100%)", pointerEvents: "none" }}
+              >
+                회원가입
+              </Button>
+            ) : (
+              <Button type="submit">회원가입</Button>
+            )}
           </div>
         </form>
       </Container>
