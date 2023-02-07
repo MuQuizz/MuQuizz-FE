@@ -32,7 +32,7 @@ const Signup = () => {
           params
         );
         console.log(data);
-        if (data.status !== 200) {
+        if (data.data.code !== 200) {
           throw new Error();
         }
       }
